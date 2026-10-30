@@ -1,0 +1,260 @@
+{
+  "steps": [
+    {
+      "step": "Fix data types (dates, ids, recommend flag)",
+      "rows_before": 49977,
+      "rows_after": 49977,
+      "flagged_or_changed": 0,
+      "note": "dates that could not be parsed"
+    },
+    {
+      "step": "Remove exact duplicate reviews",
+      "rows_before": 49977,
+      "rows_after": 49972,
+      "flagged_or_changed": 5,
+      "note": "77 rows share author+product (kept: may be genuine re-reviews)"
+    },
+    {
+      "step": "Clean review text (unicode, html, urls, stretched words, blanks)",
+      "rows_before": 49972,
+      "rows_after": 49972,
+      "flagged_or_changed": 34444,
+      "note": "rows whose text changed; raw text kept"
+    },
+    {
+      "step": "Standardise categories and mark 'not stated'",
+      "rows_before": 49972,
+      "rows_after": 49972,
+      "flagged_or_changed": 8,
+      "note": "merged grey/gray, brunette/brown; 'notSureST' treated as not stated"
+    },
+    {
+      "step": "Join product features",
+      "rows_before": 49972,
+      "rows_after": 49972,
+      "flagged_or_changed": 49972,
+      "note": "reviews matched to a product record"
+    }
+  ],
+  "metrics": {
+    "products_raw": {
+      "rows": 8494,
+      "cols": 27,
+      "missing_pct": {
+        "product_id": 0.0,
+        "product_name": 0.0,
+        "brand_id": 0.0,
+        "brand_name": 0.0,
+        "loves_count": 0.0,
+        "rating": 3.3,
+        "reviews": 3.3,
+        "size": 19.2,
+        "variation_type": 17.0,
+        "variation_value": 18.8,
+        "variation_desc": 85.3,
+        "ingredients": 11.1,
+        "price_usd": 0.0,
+        "value_price_usd": 94.7,
+        "sale_price_usd": 96.8,
+        "limited_edition": 0.0,
+        "new": 0.0,
+        "online_only": 0.0,
+        "out_of_stock": 0.0,
+        "sephora_exclusive": 0.0,
+        "highlights": 26.0,
+        "primary_category": 0.0,
+        "secondary_category": 0.1,
+        "tertiary_category": 11.7,
+        "child_count": 0.0,
+        "child_max_price": 67.6,
+        "child_min_price": 67.6
+      }
+    },
+    "products_dropped_cols": {
+      "sparse_over_80pct_missing": [
+        "variation_desc",
+        "value_price_usd",
+        "sale_price_usd"
+      ],
+      "not_needed": [
+        "child_count",
+        "child_max_price",
+        "child_min_price"
+      ]
+    },
+    "size_parsed_pct": 76.9,
+    "size_missing_raw_pct": 19.2,
+    "products_clean": {
+      "rows": 8494,
+      "skincare_products": 2420,
+      "skincare_with_ingredients": 2282,
+      "kits_flagged": 763,
+      "ingredient_parse_suspect": 169,
+      "ingredient_median_tokens": 27.0,
+      "price_quartiles_skincare": [
+        28.0,
+        44.0,
+        70.0
+      ],
+      "price_outliers_flagged": 175,
+      "price_outlier_fence_usd": 200.7,
+      "price_per_100ml_outliers": 36,
+      "best_for_skin_available": 1054,
+      "ingredient_group_prevalence_pct_skincare_nonkit": {
+        "ing_fragrance": 33.3,
+        "ing_fragrance_allergen": 32.2,
+        "ing_drying_alcohol": 9.0,
+        "ing_retinoid": 6.5,
+        "ing_acid_exfoliant": 25.6,
+        "ing_humectant": 88.1,
+        "ing_barrier_lipid": 29.8,
+        "ing_oil_butter": 64.7,
+        "ing_uv_filter": 19.9,
+        "ing_niacinamide": 14.4,
+        "ing_vitamin_c": 26.3
+      },
+      "claims_pct": {
+        "claim_vegan": 30.9,
+        "claim_cruelty_free": 20.9,
+        "claim_clean": 18.1,
+        "claim_fragrance_free": 5.9,
+        "claim_paraben_free": 16.6
+      }
+    },
+    "ingredient_example": {
+      "product": "La Habana Eau de Parfum",
+      "raw": "['Alcohol Denat. (SD Alcohol 39C), Parfum (Fragrance) Ethylhexyl Methoxycinnamate, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Benzyl Alcohol, Benzyl Benzoate, Benzyl Cinnamate, Cinnamal, Citral, Coumarin Limonene, Eugen",
+      "tokens": [
+        "alcohol denat. (sd alcohol 39c)",
+        "parfum (fragrance) ethylhexyl methoxycinnamate",
+        "ethylhexyl salicylate",
+        "butyl methoxydibenzoylmethane",
+        "benzyl alcohol",
+        "benzyl benzoate",
+        "benzyl cinnamate",
+        "cinnamal"
+      ]
+    },
+    "reviews_raw": {
+      "rows": 49977,
+      "cols": 18,
+      "distinct_products": 1104,
+      "distinct_authors": 38907,
+      "missing_pct": {
+        "author_id": 0.0,
+        "rating": 0.0,
+        "is_recommended": 7.6,
+        "helpfulness": 26.9,
+        "total_feedback_count": 0.0,
+        "total_neg_feedback_count": 0.0,
+        "total_pos_feedback_count": 0.0,
+        "submission_time": 0.0,
+        "review_text": 0.1,
+        "review_title": 28.8,
+        "skin_tone": 14.4,
+        "eye_color": 12.5,
+        "skin_type": 7.3,
+        "hair_color": 17.7,
+        "product_id": 0.0,
+        "product_name": 0.0,
+        "brand_name": 0.0,
+        "price_usd": 0.0
+      }
+    },
+    "text_issues_raw": {
+      "missing_text": 59,
+      "empty_or_blank_text": 0,
+      "html_tags": 1,
+      "urls": 2,
+      "stretched_words_4plus_repeats": 1334
+    },
+    "text_example": {
+      "raw": "Clarins is just....simply amazing!!! What combo skin doesn\u2019t want balanced oil production and tighter pores it\u2019s a win/win LOVE THIS STUFF!!!",
+      "clean": "Clarins is just...simply amazing!!! What combo skin doesn't want balanced oil production and tighter pores it's a win/win LOVE THIS STUFF!!!"
+    },
+    "validation_checks": {
+      "ratings_between_1_and_5": true,
+      "all_dates_parsed": true,
+      "dates_in_2008_2023": true,
+      "votes_add_up": true,
+      "wilson_between_0_and_1": true,
+      "no_exact_duplicates": true,
+      "every_review_matched_to_product": true,
+      "mismatch_flags_binary": true,
+      "train_test_do_not_overlap_in_time": true
+    },
+    "reviews_clean": {
+      "rows": 49972,
+      "cols": 84,
+      "rows_removed_total": 5,
+      "skin_type_stated_pct": 92.7,
+      "skin_tone_stated_pct": 85.6,
+      "skin_type_counts": {
+        "combination": 25168,
+        "dry": 9267,
+        "normal": 6735,
+        "oily": 5171,
+        "not_stated": 3631
+      },
+      "skin_tone_group_counts": {
+        "light": 25428,
+        "medium": 14526,
+        "not_stated": 7244,
+        "deep": 2774
+      },
+      "recommend_missing_pct": 7.6,
+      "helpful_missing_equals_no_votes": true,
+      "has_text_pct": 99.9,
+      "short_text": 1,
+      "non_ascii_suspect": 3,
+      "feedback_cap_99pct": 84.0,
+      "feedback_rows_capped": 496,
+      "length_outliers_flagged": 378,
+      "length_outlier_chars_above": 1360,
+      "rating_rec_conflict": 422,
+      "reaction_mention": 6306,
+      "reaction_mention_pct": 12.6,
+      "star_text_conflict_rating4plus_with_reaction": 4244,
+      "incentivized_mention": 1959,
+      "dup_text_same_author_rows": 998,
+      "dup_text_other_author_rows": 26,
+      "text_first_occurrence_rows": 49453,
+      "mismatch_rating_pct": 13.4,
+      "mismatch_rec_pct_of_known": 18.7,
+      "mismatch_any_pct": 18.6,
+      "mismatch_both_pct": 12.0,
+      "mismatch_any_by_skin_type_pct": {
+        "combination": 18.6,
+        "dry": 18.0,
+        "normal": 19.8,
+        "not_stated": 16.8,
+        "oily": 19.4
+      },
+      "mismatch_any_by_skin_type_n": {
+        "combination": 25168,
+        "dry": 9267,
+        "normal": 6735,
+        "not_stated": 3631,
+        "oily": 5171
+      },
+      "mismatch_any_by_tone_group_pct": {
+        "deep": 17.1,
+        "light": 19.6,
+        "medium": 18.9,
+        "not_stated": 15.2
+      },
+      "claimed_fit_available": 14680,
+      "claimed_fit_match_pct": 77.6,
+      "authors": 38907,
+      "authors_2plus_reviews": 5368,
+      "low_history_rows_pct": 67.1,
+      "split_cutoff_date": "2022-09-15",
+      "split_counts": {
+        "train": 39987,
+        "test": 9985
+      },
+      "date_min": "2008-09-06",
+      "date_max": "2023-03-21"
+    }
+  }
+}
