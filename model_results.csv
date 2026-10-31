@@ -1,0 +1,5 @@
+model,cv_auc,cv_sd,train_auc,test_auc,test_ap,prec_top20,rec_top20,f1_top20
+Logistic regression,0.579,0.011,0.611,0.512,0.158,0.174,0.237,0.201
+Decision tree,0.561,0.014,0.599,0.549,0.162,0.167,0.434,0.242
+Random forest,0.586,0.012,0.669,0.55,0.181,0.187,0.256,0.216
+Gradient boosting,0.586,0.006,0.659,0.569,0.181,0.198,0.27,0.229
